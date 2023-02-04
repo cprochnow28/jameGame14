@@ -45,7 +45,7 @@ public class CharacterMovement : MonoBehaviour
         isSquating = false;
 
         var worldMousePosition = Camera.main.ScreenToWorldPoint(
-            new Vector3 (Input.mousePosition.x, Input.mousePosition.x, this.transform.position.z)
+            new Vector3 (Input.mousePosition.x, Input.mousePosition.y, this.transform.position.z)
             );
 
         var aimMagnitude = worldMousePosition - this.transform.position;
