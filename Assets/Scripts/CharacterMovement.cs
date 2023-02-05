@@ -63,10 +63,10 @@ public class CharacterMovement : MonoBehaviour
         Debug.Log(aimMagnitude);
 
         aimMagnitude.x = aimMagnitude.x > 300 ? 300 : aimMagnitude.x;
-        aimMagnitude.y = aimMagnitude.y > 500 ? 500 : aimMagnitude.y;
+        aimMagnitude.y = aimMagnitude.y > 600 ? 600 : aimMagnitude.y;
 
         aimMagnitude.x = aimMagnitude.x < -300 ? -300 : aimMagnitude.x;
-        aimMagnitude.y = aimMagnitude.y < -500 ? -500 : aimMagnitude.y;
+        aimMagnitude.y = aimMagnitude.y < -600 ? -600 : aimMagnitude.y;
 
         Debug.Log(aimMagnitude);
 
