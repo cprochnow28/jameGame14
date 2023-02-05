@@ -12,6 +12,7 @@ public class CharacterMovement : MonoBehaviour
     public float reverseWorldXLocation = 0f;
     public bool isReversed = false;
     public GameObject mainCamera;
+    public float maxVelocity = 1000f;
 
     private enum MouseButton{
         MouseButtonLeft,
@@ -57,9 +58,15 @@ public class CharacterMovement : MonoBehaviour
             new Vector3 (Input.mousePosition.x, Input.mousePosition.y, this.transform.position.z)
         );
 
-        var aimMagnitude = isReversed ?
-            (worldMousePosition - this.transform.position) * -1 : worldMousePosition - this.transform.position;
-        this.gameObject.GetComponent<Rigidbody2D>().AddForce(aimMagnitude * velocityScale);
+        var aimMagnitude = worldMousePosition - this.transform.position;
+
+        var force = aimMagnitude * velocityScale;
+
+        if(maxVelocity < force.y){
+            force.y = maxVelocity;
+        }
+
+        this.gameObject.GetComponent<Rigidbody2D>().AddForce(force);
         GetComponent<Animator>().SetBool("isSquat", false);
     }
 
