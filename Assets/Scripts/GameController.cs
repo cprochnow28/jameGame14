@@ -6,12 +6,10 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public GameObject character;
-    public GameObject winZoneEvil;
-    public GameObject winZoneGood;
-    public GameObject victoryText;
     public GameObject instructions;
     public AudioClip reversedMusic;
     public AudioClip regularMusic;
+    public GameObject controls;
 
 
     // Update is called once per frame
@@ -31,6 +29,12 @@ public class GameController : MonoBehaviour
                 GetComponent<AudioSource>().clip = regularMusic;
                 GetComponent<AudioSource>().Play();
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space)){
+            Debug.Log("hit");            
+            instructions.SetActive(false);
+            controls.SetActive(true);
         }
         
     }
