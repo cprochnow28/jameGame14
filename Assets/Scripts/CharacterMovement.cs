@@ -10,7 +10,7 @@ public class CharacterMovement : MonoBehaviour
     public float velocityScale = 1f;
     public float bounciness = 1f;
     public float reverseWorldXLocation = 0f;
-    private bool isReversed = false;
+    public bool isReversed = false;
     public GameObject mainCamera;
 
     private enum MouseButton{

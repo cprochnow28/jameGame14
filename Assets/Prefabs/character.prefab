@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9080956398917748174}
   m_Layer: 0
   m_Name: character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &9080956398917748209
 BoxCollider2D:
@@ -167,3 +167,6 @@ MonoBehaviour:
   isSquating: 0
   velocityScale: 50
   bounciness: 6
+  reverseWorldXLocation: 900
+  mainCamera: {fileID: 6490723713662860023, guid: 18461fe251a5f4248ae58fe7d5f515bb,
+    type: 3}
