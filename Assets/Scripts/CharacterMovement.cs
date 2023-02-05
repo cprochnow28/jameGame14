@@ -9,6 +9,9 @@ public class CharacterMovement : MonoBehaviour
     public bool isSquating = false;
     public float velocityScale = 1f;
     public float bounciness = 1f;
+    public float reverseWorldXLocation = 0f;
+    private bool isReversed = false;
+    public GameObject mainCamera;
 
     private enum MouseButton{
         MouseButtonLeft,
@@ -23,6 +26,11 @@ public class CharacterMovement : MonoBehaviour
 
     void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.R)){
+            Warp();
+        }
+
         if(Input.GetMouseButton((int) MouseButton.MouseButtonLeft) && hasLanded && !isSquating) {
             Sqaut();
         }
@@ -34,11 +42,12 @@ public class CharacterMovement : MonoBehaviour
         if(isSquating && !Input.GetMouseButton((int) MouseButton.MouseButtonLeft)) {
             Jump();
         }
+
     }
 
     void Sqaut() {
-        this.transform.localScale = new Vector3(1, 0.5f, 1);
             isSquating = true;
+            GetComponent<Animator>().SetBool("isSquat", true);
     }
 
     void Jump() {
@@ -48,9 +57,10 @@ public class CharacterMovement : MonoBehaviour
             new Vector3 (Input.mousePosition.x, Input.mousePosition.y, this.transform.position.z)
         );
 
-        var aimMagnitude = worldMousePosition - this.transform.position;
-        this.transform.localScale = new Vector3(1, 1, 1);
+        var aimMagnitude = isReversed ?
+            (worldMousePosition - this.transform.position) * -1 : worldMousePosition - this.transform.position;
         this.gameObject.GetComponent<Rigidbody2D>().AddForce(aimMagnitude * velocityScale);
+        GetComponent<Animator>().SetBool("isSquat", false);
     }
 
     void Aim(){
@@ -70,6 +80,27 @@ public class CharacterMovement : MonoBehaviour
     void OnCollisionExit2D(Collision2D collision) {
         if(collision.gameObject.CompareTag("Platform")) {
             hasLanded = false;
+        }
+    }
+
+    void Warp() {
+        if(isReversed){
+            transform.position = new Vector3(
+                transform.position.x - reverseWorldXLocation, transform.position.y, 0
+            );
+            mainCamera.transform.position = new Vector3(
+                mainCamera.transform.position.x - reverseWorldXLocation, mainCamera.transform.position.y, mainCamera.transform.position.z
+            );
+            isReversed = false;
+        }
+        else{
+            transform.position = new Vector3(
+                transform.position.x + reverseWorldXLocation, transform.position.y, 0
+            );
+            mainCamera.transform.position = new Vector3(
+                mainCamera.transform.position.x + reverseWorldXLocation, mainCamera.transform.position.y, mainCamera.transform.position.z
+            );
+            isReversed = true;
         }
     }
 }
