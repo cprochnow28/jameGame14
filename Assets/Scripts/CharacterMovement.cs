@@ -66,7 +66,7 @@ public class CharacterMovement : MonoBehaviour
             force.y = maxVelocity;
         }
 
-        this.gameObject.GetComponent<Rigidbody2D>().AddForce(force);
+        this.gameObject.GetComponent<Rigidbody2D>().AddForce(isReversed ? force * -1 : force);
         GetComponent<Animator>().SetBool("isSquat", false);
     }
 

@@ -202,6 +202,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &333902050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5417733138347506035, guid: 0366a2fb11cbe5148afdd0caa789ca1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1784596958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &368894365
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +968,11 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 674994844}
+    - target: {fileID: 9032914056674776612, guid: ef9b17508eb759046912aa1e942fe8c1,
+        type: 3}
+      propertyPath: controls
+      value: 
+      objectReference: {fileID: 333902050}
     - target: {fileID: 9032914056674776613, guid: ef9b17508eb759046912aa1e942fe8c1,
         type: 3}
       propertyPath: m_Name
@@ -1940,6 +1951,31 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8293171889106955353, guid: 0366a2fb11cbe5148afdd0caa789ca1d,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293171889106955353, guid: 0366a2fb11cbe5148afdd0caa789ca1d,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293171889106955353, guid: 0366a2fb11cbe5148afdd0caa789ca1d,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293171889106955353, guid: 0366a2fb11cbe5148afdd0caa789ca1d,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293171889106955353, guid: 0366a2fb11cbe5148afdd0caa789ca1d,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0366a2fb11cbe5148afdd0caa789ca1d, type: 3}
 --- !u!1001 &3567790761709557720
@@ -2093,6 +2129,11 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 514158461}
+    - target: {fileID: 9080956398917748174, guid: 4ec55b1f6745a094ea6eb6d82636268f,
+        type: 3}
+      propertyPath: maxVelocity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9080956398917748208, guid: 4ec55b1f6745a094ea6eb6d82636268f,
         type: 3}
       propertyPath: m_Name
